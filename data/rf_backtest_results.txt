@@ -1,0 +1,10 @@
+Random Forest vs seasonal-naive baseline (daily-step rolling-origin backtest)
+============================================================================================
+  building naive_mae rf_mae naive_wape rf_wape naive_rmse rf_rmse naive_peak_mae rf_peak_mae
+  academic     4.461  2.126     16.10%   7.67%      7.688   3.456          7.275       3.536
+facilities     1.573  0.845     14.93%   8.02%      4.344   2.937          2.340       1.420
+   lecture     0.429  0.202     69.05%  32.47%      1.279   0.573          0.429       0.202
+   library     2.586  1.242     28.48%  13.68%      4.295   2.014          4.215       2.254
+       ALL     2.259  1.101     18.47%   9.01%      5.009   2.515          2.131       1.094
+
+Elapsed: 31.5 min

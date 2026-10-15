@@ -1,0 +1,10 @@
+Naive vs Random Forest vs GBM (daily-step rolling-origin backtest)
+============================================================================================
+  building naive_mae rf_mae gbm_mae naive_wape rf_wape gbm_wape naive_rmse rf_rmse gbm_rmse naive_peak_mae rf_peak_mae gbm_peak_mae
+  academic     4.307  1.974   1.800     18.77%   8.61%    7.84%      6.985   3.013    2.789         10.448       4.017        3.614
+facilities     1.448  0.775   0.721     13.46%   7.20%    6.70%      1.937   1.159    1.172          1.954       1.153        1.082
+   lecture     0.505  0.206   0.171    141.55%  57.58%   47.90%      1.746   0.797    0.675          0.505       0.206        0.171
+   library     2.328  1.083   0.944     31.97%  14.94%   13.02%      3.755   1.665    1.499          5.815       2.638        2.172
+       ALL     2.154  1.011   0.912     20.46%   9.61%    8.67%      4.246   1.886    1.747          1.849       0.813        0.718
+
+Elapsed: 11.1 min

@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+statsmodels
+lightgbm
+fastapi
+uvicorn[standard]
+pydantic
+pyarrow
+requests
