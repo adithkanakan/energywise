@@ -14,7 +14,7 @@ from the plan is completed.
 - [x] Phase 8 — Tariff & cost-simulation module
 - [x] Phase 9 — API
 - [x] Phase 10 — Frontend (all 6 dashboard pages: Overview, Demand chart, Usage Analysis, Cost Simulator, Model Quality, Data Status — all built and verified against real data)
-- [ ] Phase 11 — Packaging, tests, deployment
+- [x] Phase 11 — Packaging, tests, deployment (Docker setup and GitHub Actions CI done; "deployment" means local `docker compose` only, there is no hosted deployment)
 - [ ] Phase 12 — Final report & resume line
 
 ## Notes / decisions log
@@ -40,3 +40,6 @@ from the plan is completed.
 - Rewrote find_cheapest_window() to return a deterministic "no savings opportunity" result instead of running a per-hour search, since our Tariff model is always flat (no time-of-day structure) -- a search can never find real savings here, and two separate bugs (negative-value clipping, then a data-gap mismatch between "from" and "to" hours) both produced tiny fake non-zero savings. The deterministic version is simpler and structurally immune to both.
 - Added auto-estimated sanctioned_load_kw (from building's historical peak usage) since the previous hardcoded 10kW default was unrealistic (Academic's real peak is 60-80kW)
 - Frontend dashboard complete: Overview (KPI cards), Demand chart (actual vs forecast with "Now" boundary), Usage Analysis (hour x weekday heatmap, 90-day window), Cost Simulator, Model Quality (metrics table), Data Status (coverage + missing-gap warnings) -- all 6 pages built and cross-checked against earlier validation/EDA numbers
+- Added GitHub Actions CI (.github/workflows/ci.yml) with three jobs: backend pytest, frontend `npm ci` + `npm run build`, and Docker image builds for backend and frontend. First run (CI #1, commit 99b347a, 19 Oct 2026) passed on main in 1m10s.
+- Tests that need the processed data files are skipped in CI because data/ is not committed, so the CI test count is lower than the local count. Run the full suite locally after running the pipeline.
+- The CI Docker jobs only confirm that the images build; they do not start the containers. A full `docker compose up --build` smoke test is still a manual check.
