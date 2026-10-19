@@ -1,5 +1,7 @@
 # EnergyWise
 
+![CI](https://github.com/adithkanakan/energywise/actions/workflows/ci.yml/badge.svg)
+
 Hourly electricity-demand forecasting, plus a tariff-aware cost simulator, for small commercial buildings, built end to end: data pipeline, leakage-safe features, model comparison, API and dashboard.
 
 > **Honest scope.** This is a portfolio project built on a public dataset of four academic-campus buildings in Delhi (2013-2017), not on retail or office customers. The tariff used for cost estimates is an unverified approximation. See [Limitations](#limitations) before drawing conclusions from any number here.
@@ -10,6 +12,20 @@ Hourly electricity-demand forecasting, plus a tariff-aware cost simulator, for s
 - Builds leakage-safe features (calendar, lags, rolling statistics, weather) and compares a seasonal-naive baseline, SARIMAX, Random Forest and LightGBM using chronological, rolling-origin backtests.
 - Serves forecasts, history, data-quality information and cost simulations through a FastAPI service.
 - Shows everything in a React dashboard: KPI cards, actual-vs-forecast chart, usage heatmap, model-quality table and data-status warnings.
+
+## Screenshots
+
+Actual vs forecast demand for the Academic building (the forecast is a held-out demonstration, see [Limitations](#limitations)):
+
+![Forecast overview](docs/forecast.png)
+
+The cost simulator. On the flat tariff it reports "no savings opportunity" instead of inventing one:
+
+![Cost simulator](docs/simulator.png)
+
+Usage heatmap and the model-quality table (backtest results):
+
+![Usage pattern and model quality](docs/analysis.png)
 
 ## Results
 
@@ -82,6 +98,7 @@ src/energywise/
 scripts/                runnable backtest scripts
 notebooks/              01_eda.ipynb (exploratory analysis)
 tests/                  pytest suite
+docs/                   dashboard screenshots used in this README
 data/                   not committed (see data/README.md)
 ```
 
@@ -155,7 +172,11 @@ $env:PYTHONPATH="src"
 pytest
 ```
 
-96 tests passed at the time of writing. Some tests read the processed data files, so run the pipeline first.
+96 tests passed locally at the time of writing. Some tests read the processed data files, so run the pipeline first. Those tests are skipped in GitHub Actions, where the data is not available, so the CI run covers fewer tests than a full local run.
+
+## Continuous integration
+
+A GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every push and pull request to `main`. It has three jobs: backend tests (pytest), frontend install and build, and Docker image builds for the backend and frontend. The Docker job checks that the images build; it does not start the containers.
 
 ## API
 
@@ -188,4 +209,4 @@ pytest
 
 ## Project status
 
-All build phases through the dashboard and Docker setup are complete. See [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for the phase checklist and the full decisions log, including the bugs found and fixed along the way.
+All build phases through the dashboard, Docker setup and CI are complete. See [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for the phase checklist and the full decisions log, including the bugs found and fixed along the way.
