@@ -15,7 +15,7 @@ from the plan is completed.
 - [x] Phase 9 — API
 - [x] Phase 10 — Frontend (all 6 dashboard pages: Overview, Demand chart, Usage Analysis, Cost Simulator, Model Quality, Data Status — all built and verified against real data)
 - [x] Phase 11 — Packaging, tests, deployment (Docker setup and GitHub Actions CI done; "deployment" means local `docker compose` only, there is no hosted deployment)
-- [ ] Phase 12 — Final report & resume line
+- [x] Phase 12 — Final report & resume line (README results + MODEL_CARD.md serve as the report)
 
 ## Notes / decisions log
 
