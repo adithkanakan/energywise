@@ -1,5 +1,7 @@
 # EnergyWise
 
+[![CI](https://github.com/adithkanakan/energywise/actions/workflows/ci.yml/badge.svg)](https://github.com/adithkanakan/energywise/actions/workflows/ci.yml)
+
 ![CI](https://github.com/adithkanakan/energywise/actions/workflows/ci.yml/badge.svg)
 
 Hourly electricity-demand forecasting, plus a tariff-aware cost simulator, for small commercial buildings, built end to end: data pipeline, leakage-safe features, model comparison, API and dashboard.
