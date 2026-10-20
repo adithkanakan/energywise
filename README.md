@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/adithkanakan/energywise/actions/workflows/ci.yml/badge.svg)](https://github.com/adithkanakan/energywise/actions/workflows/ci.yml)
 
-![CI](https://github.com/adithkanakan/energywise/actions/workflows/ci.yml/badge.svg)
+
 
 Hourly electricity-demand forecasting, plus a tariff-aware cost simulator, for small commercial buildings, built end to end: data pipeline, leakage-safe features, model comparison, API and dashboard.
 
@@ -212,3 +212,5 @@ A GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every push and pu
 ## Project status
 
 All build phases through the dashboard, Docker setup and CI are complete. See [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for the phase checklist and the full decisions log, including the bugs found and fixed along the way.
+
+See [MODEL_CARD.md](MODEL_CARD.md) for intended use and known weaknesses.
